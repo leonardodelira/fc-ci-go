@@ -3,13 +3,13 @@ on:
   pull_request:
     branches:
       - develop:
-          jobs:
-            check-application:
-              runs-on: ubuntu-latest
-              steps:
-                - uses: actions/checkout@v2
-                - uses: actions/setup-go@v2
-                  with:
-                    go-version: 1.22.5
-                - run: go test
-                - run: go run main.go
+jobs:
+  check-application:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+        with:
+          go-version: 1.22.5
+      - run: go test
+      - run: go run main.go
